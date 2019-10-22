@@ -1,6 +1,6 @@
 ﻿namespace PTV
 {
-    partial class Next5
+    partial class Next5Form
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.stopSearchBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label2
@@ -50,16 +51,24 @@
             this.stopSearchBox.Size = new System.Drawing.Size(388, 41);
             this.stopSearchBox.TabIndex = 1;
             this.stopSearchBox.TextChanged += new System.EventHandler(this.StopSearchBox_TextChanged);
-            this.stopSearchBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyUp);
             // 
-            // Next5
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(58, 131);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(963, 471);
+            this.panel1.TabIndex = 2;
+            // 
+            // Next5Form
             // 
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1085, 603);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.stopSearchBox);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Next5";
+            this.Name = "Next5Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,5 +79,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox stopSearchBox;
+        private System.Windows.Forms.Panel panel1;
     }
 }

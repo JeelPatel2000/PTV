@@ -24,7 +24,7 @@ namespace PTV
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Next5 next5form = new Next5();
+            Next5Form next5form = new Next5Form();
             next5form.TopLevel = false;
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(next5form);

@@ -6,7 +6,7 @@ namespace PTV
 {
     public class Departures
     {
-       /* // Constructures 
+        // Constructures 
         // Departure(Stop Type, Stop ID)
         // Departure(Stop Type, Stop ID, Direction ID)
         public static async Task<JObject> GetDepartures(int stop_id)
@@ -39,7 +39,7 @@ namespace PTV
             string request = Signature.CalcuteSignature(url);
             // sending request and returning the object
             return await RequestPTV.SendRequest(request);
-        }*/
+        }
     }
 
 

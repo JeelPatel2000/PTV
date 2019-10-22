@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Distruption.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,19 +57,27 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Departures.cs" />
-    <Compile Include="Next5.cs">
+    <Compile Include="Model\Next5.cs" />
+    <Compile Include="Next5Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Next5.Designer.cs">
-      <DependentUpon>Next5.cs</DependentUpon>
+    <Compile Include="Next5Form.Designer.cs">
+      <DependentUpon>Next5Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\RequestPTV.cs" />
+    <Compile Include="Model\Routes.cs" />
+    <Compile Include="Model\Runs.cs" />
+    <Compile Include="Model\Search.cs" />
+    <Compile Include="Model\Signature.cs" />
+    <Compile Include="Model\StoppingPattern.cs" />
+    <Compile Include="Model\Stops.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Next5.resx">
-      <DependentUpon>Next5.cs</DependentUpon>
+    <EmbeddedResource Include="Next5Form.resx">
+      <DependentUpon>Next5Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

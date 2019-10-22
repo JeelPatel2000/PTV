@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTV", "PTV\PTV.csproj", "{463C0D52-1F8D-4A11-A4B8-27B084154F49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperMethodTest", "HelperMethodTest\HelperMethodTest.csproj", "{121A454A-17FF-4D64-857F-FB1B4271D459}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{463C0D52-1F8D-4A11-A4B8-27B084154F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{463C0D52-1F8D-4A11-A4B8-27B084154F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{463C0D52-1F8D-4A11-A4B8-27B084154F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{121A454A-17FF-4D64-857F-FB1B4271D459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{121A454A-17FF-4D64-857F-FB1B4271D459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{121A454A-17FF-4D64-857F-FB1B4271D459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{121A454A-17FF-4D64-857F-FB1B4271D459}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
