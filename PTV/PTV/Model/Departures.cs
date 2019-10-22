@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using Newtonsoft.Json.Linq;
 
 namespace PTV
 {
     public class Departures
     {
-        // Constructures 
+       /* // Constructures 
         // Departure(Stop Type, Stop ID)
         // Departure(Stop Type, Stop ID, Direction ID)
         public static async Task<JObject> GetDepartures(int stop_id)
@@ -46,7 +39,7 @@ namespace PTV
             string request = Signature.CalcuteSignature(url);
             // sending request and returning the object
             return await RequestPTV.SendRequest(request);
-        }
+        }*/
     }
 
 
