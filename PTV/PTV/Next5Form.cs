@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -24,9 +25,9 @@ namespace PTV
         {
             //
             
-            Console.WriteLine("key typed");
+            //Console.WriteLine("key typed");
             //1. Get the serach string
-            string searchQuery = stopSearchBox.Text;
+            string searchQuery = stopSearchBox.Text.ToString();
             //2. Get the stop list from Search Model
 
             Thread t = new Thread(async () => 
@@ -39,8 +40,8 @@ namespace PTV
             });
             t.Start();
             //3. Display the stops in the listed form by using a function
+             
             
-           
             //4. Get the stop id of the selected stop.
 
             //5. 
@@ -49,21 +50,31 @@ namespace PTV
 
         private void Display_Search_Result(dynamic result)
         {
-            Console.WriteLine("called");
-            Console.WriteLine(result);
-            if(result.stops.Count <=0)
+            //Console.WriteLine("called");
+            //Console.WriteLine(result);
+            if(result.stops.Count ==0)
             {
                 //print no stops found
                 Console.WriteLine("0 results");
             }
             else
             {
-                //searchResultPanel.Controls.Clear();
 
-                int cnt = 0;
-                foreach(dynamic stop in result.stops)
+                //stopSearchBox.AutoCompleteCustomSource.Clear();
+                AutoCompleteStringCollection resultList = new AutoCompleteStringCollection();
+                
+                foreach (dynamic stop in result.stops)
                 {
-                    Label item = new Label();
+                    //if(stop.route_type.Value==0)
+                        resultList.Add(stop.stop_name.Value);
+                }
+                stopSearchBox.AutoCompleteCustomSource = resultList;
+                //stopSearchBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+
+               /* int cnt = 0;
+                foreach (dynamic stop in result.stops)
+                {
+                    ListViewItem item = new ListViewItem();
                     item.Text = stop.stop_name;
 
                     if (stop.route_type == 0)
@@ -77,19 +88,21 @@ namespace PTV
                     else if (stop.route_type == 4)
                         item.BackColor = Color.Purple;
 
-                    item.Width = 388;
-                    item.Height = 30;
-                    item.Location = new Point(258, 40 + cnt*30);
+                    item.Position = new Point(0, 0 + cnt * 30);
+                    
+                    //item.BorderStyle = BorderStyle.FixedSingle;
+                    //item.Visible = true;
 
-                    item.BorderStyle = BorderStyle.FixedSingle;
-                    item.Visible = true;
-
-                    this.Controls.Add(item);
                     //searchResultPanel.Controls.Add(item);
-                }
+                    //searchResultPanel.Items.Add(item);
+                    //searchResultPanel.Size = new Size(searchResultPanel.Size.Width, searchResultPanel.Size.Height + 30);
+                    //searchResultPanel.Visible = true;
+                 }*/
 
             }
         }
 
     }
+
+    
 }

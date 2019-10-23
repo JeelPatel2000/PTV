@@ -30,7 +30,7 @@ namespace PTV
             // extra code to add base URL – the resultant url should be:
             //  http://timetableapi.ptv.vic.gov.au/v2/mode/2/line/787/stops-for-line?devid=2&signature=D5474F344CDAA7B92F2253169F6C1D66C1A15001
 
-            url = remove_white_spaces(url);
+            //url = remove_white_spaces(url);
 
             return url;
         }

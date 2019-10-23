@@ -1,4 +1,6 @@
-﻿namespace PTV
+﻿using System.Windows.Forms;
+
+namespace PTV
 {
     partial class Next5Form
     {
@@ -45,6 +47,8 @@
             // 
             // stopSearchBox
             // 
+            this.stopSearchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.stopSearchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.stopSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stopSearchBox.Location = new System.Drawing.Point(258, 40);
             this.stopSearchBox.Name = "stopSearchBox";
@@ -55,9 +59,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(58, 131);
+            this.panel1.Location = new System.Drawing.Point(58, 320);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(963, 471);
+            this.panel1.Size = new System.Drawing.Size(746, 186);
             this.panel1.TabIndex = 2;
             // 
             // Next5Form
@@ -81,4 +85,6 @@
         private System.Windows.Forms.TextBox stopSearchBox;
         private System.Windows.Forms.Panel panel1;
     }
+
+
 }

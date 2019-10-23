@@ -15,10 +15,10 @@ namespace HelperMethodTest.Tests
         [TestMethod()]
         public void RemoveWhiteSpaceTest()
         {
-            string aurl = "williams landingstation";
-            string url = Signature.remove_white_spaces(aurl);
+            string url = "/v3/search/" + "g e";
+            string req = Signature.CalcuteSignature(url);
 
-            Assert.AreEqual(url, "williams%20landingstation");
+            Assert.AreEqual(req, "http://timetableapi.ptv.vic.gov.au/v3/search/g%20e?devid=3001296&signature=13BEBACEE31A9EAE53B5F115A4D09897903BDA72");
         }
     }
 }
