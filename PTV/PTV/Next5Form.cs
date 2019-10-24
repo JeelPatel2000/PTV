@@ -60,21 +60,10 @@ namespace PTV
             else
             {
 
-                //stopSearchBox.AutoCompleteCustomSource.Clear();
-                AutoCompleteStringCollection resultList = new AutoCompleteStringCollection();
-                
+                int cnt = 0;
                 foreach (dynamic stop in result.stops)
                 {
-                    //if(stop.route_type.Value==0)
-                        resultList.Add(stop.stop_name.Value);
-                }
-                stopSearchBox.AutoCompleteCustomSource = resultList;
-                //stopSearchBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-
-               /* int cnt = 0;
-                foreach (dynamic stop in result.stops)
-                {
-                    ListViewItem item = new ListViewItem();
+                    Button item = new Button();
                     item.Text = stop.stop_name;
 
                     if (stop.route_type == 0)
@@ -88,20 +77,30 @@ namespace PTV
                     else if (stop.route_type == 4)
                         item.BackColor = Color.Purple;
 
-                    item.Position = new Point(0, 0 + cnt * 30);
-                    
-                    //item.BorderStyle = BorderStyle.FixedSingle;
-                    //item.Visible = true;
-
-                    //searchResultPanel.Controls.Add(item);
-                    //searchResultPanel.Items.Add(item);
-                    //searchResultPanel.Size = new Size(searchResultPanel.Size.Width, searchResultPanel.Size.Height + 30);
-                    //searchResultPanel.Visible = true;
-                 }*/
+                    item.Location = new Point(0, 0 + cnt * 30);
+           
+                }
 
             }
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            string searchQuery = SearchButton.Text;
+            
+            if(searchQuery.Length!=0)
+            {
+                Thread t = new Thread(async () =>
+                {
+                    dynamic search_result = await Search.GetSearchResult(searchQuery);
+                    //Console.WriteLine(search_result);
+                    Action action = new Action(() => Display_Search_Result(search_result));
+                    this.BeginInvoke(action);
+                    //Display_Search_Result(search_result);
+                });
+                t.Start();
+            }
+        }
     }
 
     
