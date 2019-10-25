@@ -65,6 +65,7 @@ namespace PTV
                         item.Height = 40;
                         item.Location = new Point(0, cnt * 40);
                         item.Font = new Font(FontFamily.GenericSansSerif, 12);
+                        item.TabIndex = 5;
 
                         item.Click += (sender, e) => { stopClickedEvent(sender, e, stop.stop_id.ToString(), stop.stop_name.ToString()); };
                         
@@ -86,9 +87,19 @@ namespace PTV
         
         public void stopClickedEvent(object sender,EventArgs e,string stop_id,string stop_name)
         {
-            Console.WriteLine();
             stopSearchBox.Text = stop_name;
             Clear_Search_Results_Panel();
+            
+            //displaying the departures
+            Display_Next_Departures(Int32.Parse(stop_id));
+        }
+
+        public void Display_Next_Departures(int stop_id)
+        {
+            dynamic departures = Departures.GetDepartures(stop_id);
+
+            
+
         }
 
         public void Clear_Search_Results_Panel()

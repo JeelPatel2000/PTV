@@ -32,6 +32,7 @@ namespace PTV
         {
             this.label2 = new System.Windows.Forms.Label();
             this.stopSearchBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.searchResultListPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -56,18 +57,27 @@ namespace PTV
             this.stopSearchBox.TabIndex = 1;
             this.stopSearchBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.StopSearchBox_KeyUp);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(48, 98);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(718, 348);
+            this.panel1.TabIndex = 3;
+            // 
             // searchResultListPanel
             // 
-            this.searchResultListPanel.Location = new System.Drawing.Point(258, 75);
+            this.searchResultListPanel.Location = new System.Drawing.Point(257, 75);
             this.searchResultListPanel.Name = "searchResultListPanel";
-            this.searchResultListPanel.Size = new System.Drawing.Size(389, 23);
-            this.searchResultListPanel.TabIndex = 3;
+            this.searchResultListPanel.Size = new System.Drawing.Size(389, 17);
+            this.searchResultListPanel.TabIndex = 4;
             // 
             // Next5Form
             // 
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1085, 603);
+            this.ClientSize = new System.Drawing.Size(824, 501);
             this.Controls.Add(this.searchResultListPanel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.stopSearchBox);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -82,6 +92,7 @@ namespace PTV
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox stopSearchBox;
+        private Panel panel1;
         private Panel searchResultListPanel;
     }
 
