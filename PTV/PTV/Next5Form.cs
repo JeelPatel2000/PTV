@@ -39,36 +39,39 @@ namespace PTV
                 int cnt = 0;
                 foreach (dynamic stop in result.stops)
                 {
-                  
-                    Button item = new Button();
-                    //item.Parent = searchResultListPanel;
-                    searchResultListPanel.Controls.Add(item);
 
-                    item.Text = stop.stop_name;
+                    if (stop.route_type.Value == 0)
+                    {
+                        Button item = new Button();
+                        //item.Parent = searchResultListPanel;
+                        searchResultListPanel.Controls.Add(item);
 
-                    if (stop.route_type == 0)
-                        item.BackColor = Color.LightBlue;
-                    else if (stop.route_type == 1)
-                        item.BackColor = Color.LightGreen;
-                    else if (stop.route_type == 2)
-                        item.BackColor = Color.Orange;
-                    else if (stop.route_type == 3)
-                        item.BackColor = Color.MediumPurple;
-                    else if (stop.route_type == 4)
-                        item.BackColor = Color.Purple;
+                        item.Text = stop.stop_name;
 
-                    item.Parent = searchResultListPanel;
-                    item.Width = searchResultListPanel.Width;
-                    item.Height = 40;
-                    item.Location = new Point(0, cnt * 40);
-                    item.Font = new Font(FontFamily.GenericSansSerif, 12);
+                        if (stop.route_type == 0)
+                            item.BackColor = Color.LightBlue;
+                        else if (stop.route_type == 1)
+                            item.BackColor = Color.LightGreen;
+                        else if (stop.route_type == 2)
+                            item.BackColor = Color.Orange;
+                        else if (stop.route_type == 3)
+                            item.BackColor = Color.MediumPurple;
+                        else if (stop.route_type == 4)
+                            item.BackColor = Color.Purple;
+
+                        item.Parent = searchResultListPanel;
+                        item.Width = searchResultListPanel.Width;
+                        item.Height = 40;
+                        item.Location = new Point(0, cnt * 40);
+                        item.Font = new Font(FontFamily.GenericSansSerif, 12);
 
 
-                    searchResultListPanel.Height = (cnt + 1) * 40;
-                    
-                    cnt++;
+                        searchResultListPanel.Height = (cnt + 1) * 40;
 
-                    if (cnt == 7) break;
+                        cnt++;
+
+                        if (cnt == 7) break;
+                    }
                 }
                 
 
