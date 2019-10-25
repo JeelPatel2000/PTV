@@ -75,7 +75,7 @@ namespace PTV
 
                         cnt++;
 
-                        if (cnt == 7) break;
+                        if (cnt == 10) break;
                     }
                 }
                 
@@ -94,11 +94,10 @@ namespace PTV
             Display_Next_Departures(Int32.Parse(stop_id));
         }
 
-        public void Display_Next_Departures(int stop_id)
+        public async Task Display_Next_Departures(int stop_id)
         {
-            dynamic departures = Departures.GetDepartures(stop_id);
-
-            
+            dynamic departures = await Departures.GetDepartures(stop_id);
+            Console.WriteLine(departures);           
 
         }
 
