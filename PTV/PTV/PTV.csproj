@@ -57,6 +57,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Departures.cs" />
+    <Compile Include="Model\Directions.cs" />
     <Compile Include="Model\Next5.cs" />
     <Compile Include="Model\UTC_Date_Time.cs" />
     <Compile Include="Next5Form.cs">

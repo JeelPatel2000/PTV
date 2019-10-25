@@ -13,7 +13,6 @@ namespace PTV
         public static async Task<JObject> GetDepartures(int stop_id)
         {
             string date_time = UTC_Date_Time.getDateTime();
-            Console.WriteLine(date_time);
             // the PTV api method we want
             string url = "/v3/departures/route_type/0/stop/" + stop_id + "?date_utc=" + date_time;
             // calculating signature

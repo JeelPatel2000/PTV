@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PTV.Model;
+
 
 namespace PTV
 {
@@ -19,6 +21,13 @@ namespace PTV
         public Next5Form()
         {
             InitializeComponent();
+            Hide_Selected_Components();
+            Directions d = new Directions();
+        }
+
+        public void Hide_Selected_Components()
+        {
+            resultPanel.Visible = false; 
         }
 
 
@@ -69,8 +78,6 @@ namespace PTV
 
                         item.Click += (sender, e) => { stopClickedEvent(sender, e, stop.stop_id.ToString(), stop.stop_name.ToString()); };
                         
-                        
-
                         searchResultListPanel.Height = (cnt + 1) * 40;
 
                         cnt++;
@@ -89,17 +96,66 @@ namespace PTV
         {
             stopSearchBox.Text = stop_name;
             Clear_Search_Results_Panel();
-            
+
             //displaying the departures
-            Display_Next_Departures(Int32.Parse(stop_id));
+            
+            Thread t = new Thread(async () =>
+            {
+                dynamic departures = await Departures.GetDepartures(Int32.Parse(stop_id));
+                //Console.WriteLine(search_result);
+                Action action = new Action(() => Display_Next_Departures(departures));
+                this.BeginInvoke(action);
+                //Display_Search_Result(search_result);
+            });
+            t.Start();
         }
 
-        public async Task Display_Next_Departures(int stop_id)
+        public void Display_Next_Departures(dynamic departures)
         {
-            dynamic departures = await Departures.GetDepartures(stop_id);
-            Console.WriteLine(departures);           
+
+            resultPanel.Visible = true;
+
+            departures = departures.departures;
+
+            //Console.WriteLine(departures);           
+            List<int> _directions = new List<int>();
+
+            foreach(dynamic departure in departures)
+            {
+                Console.WriteLine(departure);
+                if(!_directions.Contains(Int32.Parse(departure.direction_id.Value.ToString())))
+                {
+                    _directions.Add(Int32.Parse(departure.direction_id.Value.ToString()));
+                }
+            }
+
+            
+
+            foreach(int direction in _directions)
+            {
+                int cnt = 0;
+                foreach(dynamic departure in departures)
+                {
+                    DateTime dt = DateTime.Parse(departure.scheduled_departure_utc.ToString());
+                    DateTime now = DateTime.UtcNow;
+
+                    if (Int32.Parse(departure.direction_id.Value.ToString()) == direction && DateTime.Compare(dt,now) > 0)
+                    {
+                        towardsLabel.Text = "Towards " + Directions.getDirectionNameByID(direction);
+                        
+                        timeLabel.Text = "Departs at " + dt.ToLocalTime(); 
+                        platformLabel.Text = "Platform " + departure.platform_number.ToString();
+
+                        if (++cnt == 1)
+                            break;
+                    }                 
+                }
+            }
 
         }
+
+        
+
 
         public void Clear_Search_Results_Panel()
         {
