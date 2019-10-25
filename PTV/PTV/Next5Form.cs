@@ -21,32 +21,6 @@ namespace PTV
             InitializeComponent();
         }
 
-        private void StopSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            //
-            
-            //Console.WriteLine("key typed");
-            //1. Get the serach string
-            string searchQuery = stopSearchBox.Text.ToString();
-            //2. Get the stop list from Search Model
-
-            Thread t = new Thread(async () => 
-            {
-                dynamic search_result = await Search.GetSearchResult(searchQuery);
-                //Console.WriteLine(search_result);
-                Action action = new Action( ()=> Display_Search_Result(search_result));
-                this.BeginInvoke(action);
-                //Display_Search_Result(search_result);
-            });
-            t.Start();
-            //3. Display the stops in the listed form by using a function
-             
-            
-            //4. Get the stop id of the selected stop.
-
-            //5. 
-
-        }
 
         private void Display_Search_Result(dynamic result)
         {
@@ -59,11 +33,17 @@ namespace PTV
             }
             else
             {
+                
+                searchResultListPanel.Controls.Clear();
 
                 int cnt = 0;
                 foreach (dynamic stop in result.stops)
                 {
+                  
                     Button item = new Button();
+                    //item.Parent = searchResultListPanel;
+                    searchResultListPanel.Controls.Add(item);
+
                     item.Text = stop.stop_name;
 
                     if (stop.route_type == 0)
@@ -77,18 +57,33 @@ namespace PTV
                     else if (stop.route_type == 4)
                         item.BackColor = Color.Purple;
 
-                    item.Location = new Point(0, 0 + cnt * 30);
-           
-                }
+                    item.Parent = searchResultListPanel;
+                    item.Width = searchResultListPanel.Width;
+                    item.Height = 40;
+                    item.Location = new Point(0, cnt * 40);
+                    item.Font = new Font(FontFamily.GenericSansSerif, 12);
 
+
+                    searchResultListPanel.Height = (cnt + 1) * 40;
+                    
+                    cnt++;
+
+                    if (cnt == 7) break;
+                }
+                
+
+                
             }
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        
+
+
+        private void StopSearchBox_KeyUp(object sender, KeyEventArgs e)
         {
-            string searchQuery = SearchButton.Text;
-            
-            if(searchQuery.Length!=0)
+            string searchQuery = stopSearchBox.Text;
+
+            if (searchQuery.Length != 0)
             {
                 Thread t = new Thread(async () =>
                 {
@@ -101,6 +96,7 @@ namespace PTV
                 t.Start();
             }
         }
+
     }
 
     

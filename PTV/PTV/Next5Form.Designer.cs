@@ -32,7 +32,7 @@ namespace PTV
         {
             this.label2 = new System.Windows.Forms.Label();
             this.stopSearchBox = new System.Windows.Forms.TextBox();
-            this.SearchButton = new System.Windows.Forms.Button();
+            this.searchResultListPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label2
@@ -50,28 +50,24 @@ namespace PTV
             this.stopSearchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.stopSearchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.stopSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopSearchBox.Location = new System.Drawing.Point(258, 40);
+            this.stopSearchBox.Location = new System.Drawing.Point(258, 34);
             this.stopSearchBox.Name = "stopSearchBox";
             this.stopSearchBox.Size = new System.Drawing.Size(388, 41);
             this.stopSearchBox.TabIndex = 1;
-            this.stopSearchBox.TextChanged += new System.EventHandler(this.StopSearchBox_TextChanged);
+            this.stopSearchBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.StopSearchBox_KeyUp);
             // 
-            // SearchButton
+            // searchResultListPanel
             // 
-            this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(708, 40);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 41);
-            this.SearchButton.TabIndex = 2;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.searchResultListPanel.Location = new System.Drawing.Point(258, 81);
+            this.searchResultListPanel.Name = "searchResultListPanel";
+            this.searchResultListPanel.Size = new System.Drawing.Size(389, 23);
+            this.searchResultListPanel.TabIndex = 3;
             // 
             // Next5Form
             // 
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1085, 603);
-            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.searchResultListPanel);
             this.Controls.Add(this.stopSearchBox);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -86,7 +82,7 @@ namespace PTV
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox stopSearchBox;
-        private Button SearchButton;
+        private Panel searchResultListPanel;
     }
 
 
