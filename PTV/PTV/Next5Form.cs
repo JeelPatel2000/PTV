@@ -29,12 +29,13 @@ namespace PTV
             if(result.stops.Count ==0)
             {
                 //print no stops found
-                Console.WriteLine("0 results");
+                //Console.WriteLine("0 results");
+                Clear_Search_Results_Panel();
             }
             else
             {
-                
-                searchResultListPanel.Controls.Clear();
+
+                Clear_Search_Results_Panel();
 
                 int cnt = 0;
                 foreach (dynamic stop in result.stops)
@@ -65,6 +66,9 @@ namespace PTV
                         item.Location = new Point(0, cnt * 40);
                         item.Font = new Font(FontFamily.GenericSansSerif, 12);
 
+                        item.Click += (sender, e) => { stopClickedEvent(sender, e, stop.stop_id.ToString(), stop.stop_name.ToString()); };
+                        
+                        
 
                         searchResultListPanel.Height = (cnt + 1) * 40;
 
@@ -80,7 +84,18 @@ namespace PTV
         }
 
         
+        public void stopClickedEvent(object sender,EventArgs e,string stop_id,string stop_name)
+        {
+            Console.WriteLine();
+            stopSearchBox.Text = stop_name;
+            Clear_Search_Results_Panel();
+        }
 
+        public void Clear_Search_Results_Panel()
+        {
+            searchResultListPanel.Controls.Clear();
+            searchResultListPanel.Height = 0;
+        }
 
         private void StopSearchBox_KeyUp(object sender, KeyEventArgs e)
         {

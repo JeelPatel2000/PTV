@@ -58,7 +58,7 @@ namespace PTV
             // 
             // searchResultListPanel
             // 
-            this.searchResultListPanel.Location = new System.Drawing.Point(258, 81);
+            this.searchResultListPanel.Location = new System.Drawing.Point(258, 75);
             this.searchResultListPanel.Name = "searchResultListPanel";
             this.searchResultListPanel.Size = new System.Drawing.Size(389, 23);
             this.searchResultListPanel.TabIndex = 3;
