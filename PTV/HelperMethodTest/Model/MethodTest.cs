@@ -21,6 +21,13 @@ namespace HelperMethodTest.Tests
             Assert.AreEqual(req, "/v3/search/" + "g%20e");
         }
 
-        
+        [TestMethod()]
+        public void TestCalculateSignature()
+        {
+            string url = "/v3/departures/route_type/" +"1"+ "/stop/"+"2";
+            string request = Signature.CalcuteSignature(url);
+            string expect = "/v3/departures/route_type/1/stop/2?devid=3001296&signature=5FB4E172B5E78B91C8035C9E058DDB60CE5B9C34";
+            Assert.AreEqual(expect, request);
+        }
     }
 }
