@@ -9,6 +9,11 @@ namespace PTV
 {
     public class Search
     {
+        /// <summary>
+        /// After removing the white space in the searching words, the signature will be calculated and use it to send a request to PTV website.
+        /// </summary>
+        /// <param name="search_term"></param>
+        /// <returns></returns>
         public static async Task<JObject> GetSearchResult(string search_term)
         {
             search_term = remove_white_spaces(search_term);
