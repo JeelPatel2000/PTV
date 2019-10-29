@@ -12,6 +12,11 @@ namespace PTV
 {
     public class RequestPTV
     {
+        /// <summary>
+        /// Sending request to the timetable api website of PTV.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async static Task<JObject> SendRequest(string request)
         {
             JObject jObject = new JObject();

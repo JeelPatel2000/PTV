@@ -6,9 +6,11 @@ namespace PTV
 {
     public class Departures
     {
-        // Constructures 
-        // Departure(Stop Type, Stop ID)
-        // Departure(Stop Type, Stop ID, Direction ID)
+        /// <summary>
+        /// Constructures 
+        /// </summary>
+        /// <param name="stop_id"></param>
+        /// <returns></returns>
         public static async Task<JObject> GetDepartures(int stop_id)
         {
             // the PTV api method we want
@@ -18,7 +20,14 @@ namespace PTV
             // sending request and returning the object
             return await RequestPTV.SendRequest(request);
         }
-
+        /// <summary>
+        /// Departure(Stop Type, Stop ID)
+        /// Determine the url based on route_type and stop_id.
+        /// Then calculating the signature to use it as a request to PTV website.
+        /// </summary>
+        /// <param name="route_type"></param>
+        /// <param name="stop_id"></param>
+        /// <returns></returns>
         public static async Task<JObject> GetDepartures(int route_type, int stop_id)
         {
             // the PTV api method we want
@@ -29,7 +38,15 @@ namespace PTV
             // sending request and returning the object
             return await RequestPTV.SendRequest(request);
         }
-
+        /// <summary>
+        /// Departure(Stop Type, Stop ID, Direction ID).
+        /// Determine the url based on route_type and stop_id.
+        /// Then calculating the signature to use it as a request to PTV website.
+        /// </summary>
+        /// <param name="route_type"></param>
+        /// <param name="stop_id"></param>
+        /// <param name="route_id"></param>
+        /// <returns></returns>
         public static async Task<JObject> GetDepartures(int route_type, int stop_id, int route_id)
         {
             // the PTV api method we want

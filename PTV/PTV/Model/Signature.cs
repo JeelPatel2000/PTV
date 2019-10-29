@@ -8,9 +8,16 @@ namespace PTV
 {
     public class Signature
     {
+        /// <summary>
+        /// The account was created to get the access permission in PTV website.
+        /// </summary>
         private static string key = "2765ded7-ed93-4e8c-87ff-dfda9edc0bc8"; // supplied by PTV
         private static int developerId = 3001296; // supplied by PTV
-
+        /// <summary>
+        /// Signature is calculated by the url. It is necessary to get the request data from online database.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static string CalcuteSignature(string url)
         {  
             // add developer id
