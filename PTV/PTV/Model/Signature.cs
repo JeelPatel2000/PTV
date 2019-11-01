@@ -41,7 +41,11 @@ namespace PTV
 
             return url;
         }
-
+        /// <summary>
+        /// To remove the white space in the input box to corresponding symbol of the signature.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static string remove_white_spaces(string url)
         {
             string new_url = "";
